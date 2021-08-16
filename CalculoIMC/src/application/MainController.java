@@ -53,6 +53,10 @@ public class MainController {
 			alert.setHeaderText("Informações do IMC:");
 			alert.setContentText(this.msg);
 			alert.show();
+			
+			//limpa os campos da tela para o proximo calculo
+			limpaCampos();
+			
 		}catch(Exception e) {
 			//e.toString();
 			Alert alertErro = new Alert(AlertType.ERROR);
@@ -61,6 +65,7 @@ public class MainController {
 		}
 	}
 	
+	//funcao que retorna qual a classificacao do imc calculado
 	public String classificacao() {
 		if(this.resul<18.5)
 			return "Magreza.";
@@ -70,6 +75,14 @@ public class MainController {
 			return "Sobrepeso.";
 		else 
 			return "Obesidade.";
+	}
+	
+	//limpa os campos da tela para o proximo calculo
+	public void limpaCampos() {
+		radioFemi.setSelected(true);
+		idade.setText("");
+		altura.setText("");
+		peso.setText("");
 	}
 	
 }
